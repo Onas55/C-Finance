@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+     C$50 Finance - Register
+{% endblock %}
+
+{% block content %}
+<main class="container-fluid py-5 text-center">
+    <div class="container">
+      <div class="jumbotron">
+        <form method = "POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+
+            <p>C$50 FINANCE</p>
+            <h1>Create an account</h1>
+            <br>
+           {{ form.username.label() }}
+           {{ form.username(class="form-control", placeholder="Enter Username") }}
+
+           {{ form.email_address.label() }}
+           {{ form.email_address(class="form-control", placeholder="Enter email address") }}
+
+           {{ form.password1.label() }}
+           {{ form.password1(class="form-control", placeholder="Create Password") }}
+
+           {{ form.password2.label() }}
+           {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+            <br>
+
+           <div class="checkbox mb-3">
+               <h4>Already have an account</h4>
+               <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login</a>
+           </div>
+
+           {{ form.submit(class='btn btn-secondary') }}
+
+        </form>
+      </div>
+    </div>
+</main>
+{% endblock %}

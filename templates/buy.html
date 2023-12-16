@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} C$50 Finance - Buy
+{% endblock %}
+{% block content %}
+<div class="row" style="margin-top:20px; margin-left:20px">
+    <div class="col-sm-8">
+      <h2>Available Stocks</h2>
+          <h3>Start Buying</h3>
+        <br>
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Symbol</th>
+          <th scope="col">Name</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Price</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody> {% for item in items %}
+      {% include 'includes/help_modals.html' %}
+      <tr>
+          <td>{{ item.symbol }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.shares }}</td>
+          <td>{{ item.price }}$</td>
+          <td>
+            <button class="btn btn-outline btn-info" data-bs-toggle="modal" data-bs-target="#Modal_MoreInfo-{{ item.id }}">More Info</button>
+            <button class="btn btn-outline btn-success" data-bs-toggle="modal" data-bs-target="#Modal_Purchase-{{ item.id }}">Buy</button>
+          </td>
+        </tr> {% endfor %} </tbody>
+</table>        w
+{% endblock %}
